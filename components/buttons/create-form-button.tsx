@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { BsFileEarmarkPlus } from 'react-icons/bs';
 import { ImSpinner2 } from 'react-icons/im';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -27,6 +28,8 @@ import { Button } from '@/components/ui/button';
 import { formSchema, type FormSchemaType } from '@/schemas/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { toast } from '@/components/ui/use-toast';
+import { createForm } from '@/actions/form';
 
 export function CreateFormButton() {
   const form = useForm<FormSchemaType>({
@@ -38,9 +41,27 @@ export function CreateFormButton() {
     reValidateMode: 'onBlur',
   });
 
-  function onSubmit(values: FormSchemaType) {
-    console.log(values);
+  const router = useRouter();
+
+  async function onSubmit(values: FormSchemaType) {
+    try {
+      const formId = await createForm(values);
+      toast({
+        title: 'Success',
+        description: 'Form created successfully',
+      });
+
+      router.push(`/builder/${formId}`);
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'Something went wrong, please try again later',
+        variant: 'destructive',
+      });
+    }
   }
+
+  const isSubmitting = form.formState.isSubmitting;
 
   return (
     <Dialog>
@@ -95,13 +116,11 @@ export function CreateFormButton() {
         <DialogFooter>
           <Button
             onClick={form.handleSubmit(onSubmit)}
-            disabled={form.formState.isSubmitting}
+            disabled={isSubmitting}
             className="w-full mt-4"
           >
-            {!form.formState.isSubmitting && <span>Save</span>}
-            {form.formState.isSubmitting && (
-              <ImSpinner2 className="animate-spin" />
-            )}
+            {!isSubmitting && <span>Save</span>}
+            {isSubmitting && <ImSpinner2 className="animate-spin" />}
           </Button>
         </DialogFooter>
       </DialogContent>
