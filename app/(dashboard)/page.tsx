@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+
+import { StatsCardsWrapper } from '@/components/cards/stats-cards-wrapper';
+import { StatsCards } from "@/components/cards/stats-cards";
 
 export const metadata = {
   title: 'DnD Forms',
@@ -8,7 +11,9 @@ export const metadata = {
 export default function Dashboard() {
   return (
     <div className="container pt-4">
-      <h1>Dashboard</h1>
+      <Suspense fallback={<StatsCards loading={true} />}>
+        <StatsCardsWrapper />
+      </Suspense>
     </div>
   );
 }

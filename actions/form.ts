@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 
 class UserNotFoundError extends Error {}
 
-export async function GetFormStats() {
+export async function getFormStats() {
   const user = await currentUser();
 
   if (!user) {
