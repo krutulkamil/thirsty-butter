@@ -3,7 +3,7 @@ import React, { type ReactNode } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 
-interface StatsCardProps {
+export interface StatsCardProps {
   title: string;
   icon: ReactNode;
   helperText: string;

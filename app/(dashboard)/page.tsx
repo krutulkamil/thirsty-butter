@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 
 import { StatsCardsWrapper } from '@/components/cards/stats-cards-wrapper';
-import { StatsCards } from "@/components/cards/stats-cards";
+import { StatsCards } from '@/components/cards/stats-cards';
 
 export const metadata = {
   title: 'DnD Forms',
