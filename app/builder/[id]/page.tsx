@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { getFormById } from '@/actions/form';
+import { FormBuilder } from '@/components/form-builder/form-builder';
 
 export const metadata = {
   title: 'DnD Forms | Builder',
@@ -23,5 +24,5 @@ export default async function BuilderPage({
     throw new Error('Form not found');
   }
 
-  return <div className="container pt-4">{id}</div>;
+  return <FormBuilder form={form} />;
 }
