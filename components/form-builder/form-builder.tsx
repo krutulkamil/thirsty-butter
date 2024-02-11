@@ -6,7 +6,7 @@ import type { Form } from '@prisma/client';
 import { PreviewDialogButton } from '@/components/buttons/preview-dialog-button';
 import { SaveFormButton } from '@/components/buttons/save-form-button';
 import { PublishFormButton } from '@/components/buttons/publish-form-button';
-import { Designer } from "@/components/form-builder/designer";
+import { Designer } from '@/components/form-builder/designer';
 
 interface FormBuilderProps {
   form: Form;
