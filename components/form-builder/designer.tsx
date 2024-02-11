@@ -1,10 +1,18 @@
 'use client';
 
 import React from 'react';
+import { useDroppable } from '@dnd-kit/core';
 
 import { DesignerSidebar } from '@/components/form-builder/designer-sidebar';
 
 export function Designer() {
+  const droppable = useDroppable({
+    id: 'designer-drop-area',
+    data: {
+      isDesignerDropArea: true,
+    },
+  });
+
   return (
     <div className="flex w-full h-full">
       <div className="p-4 w-full">
