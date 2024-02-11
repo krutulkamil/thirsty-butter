@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function Dashboard() {
   return (
-    <div>
+    <div className="container pt-4">
       <h1>Dashboard</h1>
     </div>
   );
