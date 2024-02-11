@@ -1,5 +1,5 @@
 import { getFormStats } from '@/actions/form';
-import { StatsCards } from '@/components/cards/stats-cards';
+import { StatsCards } from '@/components/stats-card/stats-cards';
 
 export async function StatsCardsWrapper() {
   const stats = await getFormStats();

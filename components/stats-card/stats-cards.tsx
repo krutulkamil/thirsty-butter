@@ -4,7 +4,10 @@ import { FaWpforms } from 'react-icons/fa';
 import { HiCursorClick } from 'react-icons/hi';
 import { TbArrowBounce } from 'react-icons/tb';
 
-import { StatsCard, type StatsCardProps } from '@/components/cards/stats-card';
+import {
+  StatsCard,
+  type StatsCardProps,
+} from '@/components/stats-card/stats-card';
 import { getFormStats } from '@/actions/form';
 
 interface StatsCardsProps {
@@ -17,7 +20,7 @@ export function StatsCards({ data, loading }: Readonly<StatsCardsProps>) {
     {
       title: 'Total visits',
       icon: <LuView className="text-blue-600" />,
-      helperText: 'All time form visits',
+      helperText: 'All time form-card visits',
       value: data?.visits.toLocaleString() ?? '',
       loading,
       className: 'shadow-md shadow-blue-600',
@@ -25,7 +28,7 @@ export function StatsCards({ data, loading }: Readonly<StatsCardsProps>) {
     {
       title: 'Total submissions',
       icon: <FaWpforms className="text-yellow-600" />,
-      helperText: 'All time form submissions',
+      helperText: 'All time form-card submissions',
       value: data?.submissions.toLocaleString() ?? '',
       loading,
       className: 'shadow-md shadow-yellow-600',
@@ -33,7 +36,7 @@ export function StatsCards({ data, loading }: Readonly<StatsCardsProps>) {
     {
       title: 'Submission rate',
       icon: <HiCursorClick className="text-green-600" />,
-      helperText: 'Visits that result in form submission',
+      helperText: 'Visits that result in form-card submission',
       value: data?.submissionRate.toLocaleString() + '%' || '',
       loading,
       className: 'shadow-md shadow-green-600',

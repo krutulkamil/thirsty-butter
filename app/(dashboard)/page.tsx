@@ -1,9 +1,11 @@
 import React, { Suspense } from 'react';
 
-import { StatsCardsWrapper } from '@/components/cards/stats-cards-wrapper';
-import { StatsCards } from '@/components/cards/stats-cards';
+import { StatsCardsWrapper } from '@/components/stats-card/stats-cards-wrapper';
+import { StatsCards } from '@/components/stats-card/stats-cards';
 import { Separator } from '@/components/ui/separator';
 import { CreateFormButton } from '@/components/buttons/create-form-button';
+import { FormCards } from '@/components/form-card/form-cards';
+import { FormCardSkeleton } from '@/components/form-card/form-card-skeleton';
 
 export const metadata = {
   title: 'DnD Forms',
@@ -21,6 +23,13 @@ export default function Dashboard() {
       <Separator className="my-6" />
       <div className="grid gric-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <CreateFormButton />
+        <Suspense
+          fallback={[1, 2, 3, 4].map((item) => (
+            <FormCardSkeleton key={item} />
+          ))}
+        >
+          <FormCards />
+        </Suspense>
       </div>
     </div>
   );
