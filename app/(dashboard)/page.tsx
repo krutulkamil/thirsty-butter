@@ -2,6 +2,8 @@ import React, { Suspense } from 'react';
 
 import { StatsCardsWrapper } from '@/components/cards/stats-cards-wrapper';
 import { StatsCards } from '@/components/cards/stats-cards';
+import { Separator } from '@/components/ui/separator';
+import { CreateFormButton } from '@/components/buttons/create-form-button';
 
 export const metadata = {
   title: 'DnD Forms',
@@ -14,6 +16,12 @@ export default function Dashboard() {
       <Suspense fallback={<StatsCards loading={true} />}>
         <StatsCardsWrapper />
       </Suspense>
+      <Separator className="my-6" />
+      <h2 className="text-4xl font-bold col-span-2">Your forms</h2>
+      <Separator className="my-6" />
+      <div className="grid gric-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <CreateFormButton />
+      </div>
     </div>
   );
 }
