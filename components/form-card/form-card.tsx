@@ -45,7 +45,7 @@ export function FormCard({ form }: Readonly<FormCardProps>) {
         </CardDescription>
       </CardHeader>
       <CardContent className="h-[20px] truncate text-sm text-muted-foreground">
-        {form.description || 'No description'}
+        {form.description ?? 'No description'}
       </CardContent>
       <CardFooter>
         {isPublished && (
@@ -58,7 +58,7 @@ export function FormCard({ form }: Readonly<FormCardProps>) {
         {!isPublished && (
           <Button
             asChild
-            variant={'secondary'}
+            variant="secondary"
             className="w-full mt-2 text-md gap-4"
           >
             <Link href={`/builder/${form.id}`}>
