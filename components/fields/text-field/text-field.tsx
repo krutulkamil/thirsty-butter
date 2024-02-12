@@ -1,11 +1,11 @@
 'use client';
 
-import React from 'react';
 import { MdTextFields } from 'react-icons/md';
 
 import { extraAttributes } from '@/components/fields/text-field/config/attributes';
 import { DesignerComponent } from '@/components/fields/text-field/designer-component';
 import { PropertiesComponent } from '@/components/fields/text-field/properties-component';
+import { FormComponent } from '@/components/fields/text-field/form-component';
 import type {
   ElementsType,
   FormElement,
@@ -26,6 +26,6 @@ export const TextFieldFormElement: FormElement = {
     label: 'Text Field',
   },
   designerComponent: DesignerComponent,
-  formComponent: () => <div>Form component</div>,
+  formComponent: FormComponent,
   propertiesComponent: PropertiesComponent,
 };

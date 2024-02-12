@@ -5,13 +5,13 @@ import { Input } from '@/components/ui/input';
 import type { FormElementInstance } from '@/components/form-builder/form-elements';
 import type { CustomInstance } from '@/components/fields/text-field/text-field';
 
-interface DesignerComponentProps {
+interface FormComponentProps {
   elementInstance: FormElementInstance;
 }
 
-export function DesignerComponent({
+export function FormComponent({
   elementInstance,
-}: Readonly<DesignerComponentProps>) {
+}: Readonly<FormComponentProps>) {
   const element = elementInstance as CustomInstance;
   const { label, required, placeholder, helperText } = element.extraAttributes;
 
@@ -21,7 +21,7 @@ export function DesignerComponent({
         {label}
         {required && '*'}
       </Label>
-      <Input readOnly disabled placeholder={placeholder} />
+      <Input placeholder={placeholder} />
       {helperText && (
         <p className="text-muted-foreground text-[0.8rem]">{helperText}</p>
       )}
