@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useDroppable } from '@dnd-kit/core';
+import { useDraggable, useDroppable } from "@dnd-kit/core";
 import { BiSolidTrash } from 'react-icons/bi';
 
 import {
@@ -41,6 +41,17 @@ export function DesignerElementWrapper({
     },
   });
 
+  const draggable = useDraggable({
+    id: element.id + "-drag-handler",
+    data: {
+      type: element.type,
+      elementId: element.id,
+      isDesignerElement: true,
+    },
+  });
+
+  if (draggable.isDragging) return null;
+
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     setSelectedElement(element);
@@ -50,6 +61,9 @@ export function DesignerElementWrapper({
 
   return (
     <div
+      ref={draggable.setNodeRef}
+      {...draggable.listeners}
+      {...draggable.attributes}
       onMouseEnter={() => setMouseIsOver(true)}
       onMouseLeave={() => setMouseIsOver(false)}
       onClick={handleClick}
