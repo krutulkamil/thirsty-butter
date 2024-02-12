@@ -42,7 +42,7 @@ export function Designer() {
       const droppingSidebarButtonOverDesignerDropArea =
         isDesignerButtonElement && isDroppingOverDesignerDropArea;
 
-      // First scenario
+      // First scenario - dropping a sidebar button over the designer drop area
       if (droppingSidebarButtonOverDesignerDropArea) {
         const type: ElementsType = active.data.current?.type;
         const newElement = FormElements[type].construct(idGenerator());
@@ -62,7 +62,7 @@ export function Designer() {
       const droppingSidebarButtonOverDesignerElement =
         isDesignerButtonElement && isDroppingOverDesignerElement;
 
-      // Second scenario
+      // Second scenario: dropping a sidebar button over a designer element
       if (droppingSidebarButtonOverDesignerElement) {
         const type: ElementsType = active.data.current?.type;
         const newElement = FormElements[type].construct(idGenerator());
@@ -82,7 +82,7 @@ export function Designer() {
         return addElement(indexForNewElement, newElement);
       }
 
-      // Third scenario
+      // Third scenario: dropping a designer element over another designer element
       const isDraggingDesignerElement = active.data.current?.isDesignerElement;
 
       const draggingDesignerElementOverAnotherDesignerElement =
