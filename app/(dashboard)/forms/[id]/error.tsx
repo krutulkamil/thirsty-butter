@@ -5,11 +5,11 @@ import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 
-interface FormErrorProps {
+interface FormDetailsErrorProps {
   error: Error;
 }
 
-export default function FormError({ error }: Readonly<FormErrorProps>) {
+export default function FormDetailsError({ error }: Readonly<FormDetailsErrorProps>) {
   useEffect(() => {
     console.error(error);
   }, [error]);
