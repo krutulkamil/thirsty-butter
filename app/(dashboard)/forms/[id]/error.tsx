@@ -9,7 +9,9 @@ interface FormDetailsErrorProps {
   error: Error;
 }
 
-export default function FormDetailsError({ error }: Readonly<FormDetailsErrorProps>) {
+export default function FormDetailsError({
+  error,
+}: Readonly<FormDetailsErrorProps>) {
   useEffect(() => {
     console.error(error);
   }, [error]);

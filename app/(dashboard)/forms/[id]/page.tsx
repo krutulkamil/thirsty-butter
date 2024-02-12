@@ -2,6 +2,7 @@ import React from 'react';
 
 import { getFormById } from '@/actions/form';
 import { VisitButton } from '@/components/buttons/visit-button';
+import { FormShareLink } from '@/components/form-builder/form-share-link';
 
 export const metadata = {
   title: 'DnD Forms | Form Details',
@@ -14,7 +15,9 @@ interface FormDetailsPageProps {
   };
 }
 
-export default async function FormDetailsPage({ params }: Readonly<FormDetailsPageProps>) {
+export default async function FormDetailsPage({
+  params,
+}: Readonly<FormDetailsPageProps>) {
   const { id } = params;
 
   const form = await getFormById(Number(id));
@@ -28,11 +31,18 @@ export default async function FormDetailsPage({ params }: Readonly<FormDetailsPa
   const bounceRate = 100 - submissionRate;
 
   return (
-    <div className="py-10 border-b border-muted">
-      <div className="flex justify-between container">
-        <h1 className="text-4xl font-bold truncate">{form.name}</h1>
-        <VisitButton shareUrl={form.shareURL} />
+    <>
+      <div className="py-10 border-b border-muted">
+        <div className="flex justify-between container">
+          <h1 className="text-4xl font-bold truncate">{form.name}</h1>
+          <VisitButton shareUrl={form.shareURL} />
+        </div>
       </div>
-    </div>
+      <div className="py-4 border-b border-muted">
+        <div className="container flex gap-2 items-center justify-between">
+          <FormShareLink shareUrl={form.shareURL} />
+        </div>
+      </div>
+    </>
   );
 }
