@@ -19,9 +19,9 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { Switch } from '@/components/ui/switch';
 import type { FormElementInstance } from '@/components/form-builder/form-elements';
 import type { CustomInstance } from '@/components/fields/text-field/text-field';
-import { Switch } from '@/components/ui/switch';
 
 interface PropertiesComponentProps {
   elementInstance: FormElementInstance;
