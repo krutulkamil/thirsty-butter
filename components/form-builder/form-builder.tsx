@@ -8,6 +8,7 @@ import { PreviewDialogButton } from '@/components/buttons/preview-dialog-button'
 import { SaveFormButton } from '@/components/buttons/save-form-button';
 import { PublishFormButton } from '@/components/buttons/publish-form-button';
 import { Designer } from '@/components/form-builder/designer';
+import { DragOverlayWrapper } from '@/components/form-builder/drag-overlay-wrapper';
 
 interface FormBuilderProps {
   form: Form;
@@ -36,6 +37,7 @@ export function FormBuilder({ form }: Readonly<FormBuilderProps>) {
           <Designer />
         </div>
       </main>
+      <DragOverlayWrapper />
     </DndContext>
   );
 }
