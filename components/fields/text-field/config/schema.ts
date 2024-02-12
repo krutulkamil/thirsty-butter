@@ -4,5 +4,7 @@ export const propertiesSchema = z.object({
   label: z.string().min(2).max(50),
   helperText: z.string().max(200),
   required: z.boolean().default(false),
-  placeHolder: z.string().max(50),
+  placeholder: z.string().max(50),
 });
+
+export type PropertiesFormSchema = z.infer<typeof propertiesSchema>;

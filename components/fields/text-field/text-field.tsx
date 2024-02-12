@@ -5,6 +5,7 @@ import { MdTextFields } from 'react-icons/md';
 
 import { extraAttributes } from '@/components/fields/text-field/config/attributes';
 import { DesignerComponent } from '@/components/fields/text-field/designer-component';
+import { PropertiesComponent } from '@/components/fields/text-field/properties-component';
 import type {
   ElementsType,
   FormElement,
@@ -26,5 +27,5 @@ export const TextFieldFormElement: FormElement = {
   },
   designerComponent: DesignerComponent,
   formComponent: () => <div>Form component</div>,
-  propertiesComponent: () => <div>Properties component</div>,
+  propertiesComponent: PropertiesComponent,
 };
