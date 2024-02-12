@@ -3,13 +3,19 @@
 import React from 'react';
 import { MdTextFields } from 'react-icons/md';
 
-import {
+import { extraAttributes } from '@/components/fields/text-field/config/attributes';
+import { DesignerComponent } from '@/components/fields/text-field/designer-component';
+import type {
   ElementsType,
   FormElement,
+  FormElementInstance,
 } from '@/components/form-builder/form-elements';
-import { extraAttributes } from '@/components/fields/text-field/config/attributes';
 
 const type: ElementsType = 'TextField';
+
+export type CustomInstance = FormElementInstance & {
+  extraAttributes: typeof extraAttributes;
+};
 
 export const TextFieldFormElement: FormElement = {
   type,
@@ -18,7 +24,7 @@ export const TextFieldFormElement: FormElement = {
     icon: MdTextFields,
     label: 'Text Field',
   },
-  designerComponent: () => <div>Designers component</div>,
+  designerComponent: DesignerComponent,
   formComponent: () => <div>Form component</div>,
   propertiesComponent: () => <div>Properties component</div>,
 };

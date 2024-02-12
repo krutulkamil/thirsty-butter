@@ -11,7 +11,7 @@ import {
   type ElementsType,
 } from '@/components/form-builder/form-elements';
 import { idGenerator } from '@/lib/idGenerator';
-import { DesignerElementWrapper } from "@/components/form-builder/designer-element-wrapper";
+import { DesignerElementWrapper } from '@/components/form-builder/designer-element-wrapper';
 
 export function Designer() {
   const { elements, addElement } = useDesigner();
