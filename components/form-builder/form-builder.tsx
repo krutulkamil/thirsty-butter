@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   DndContext,
   MouseSensor,
@@ -8,6 +8,7 @@ import {
   useSensor,
   useSensors,
 } from '@dnd-kit/core';
+import { ImSpinner2 } from "react-icons/im";
 import type { Form } from '@prisma/client';
 
 import { PreviewDialogButton } from '@/components/buttons/preview-dialog-button';
@@ -15,12 +16,16 @@ import { SaveFormButton } from '@/components/buttons/save-form-button';
 import { PublishFormButton } from '@/components/buttons/publish-form-button';
 import { Designer } from '@/components/form-builder/designer';
 import { DragOverlayWrapper } from '@/components/form-builder/drag-overlay-wrapper';
+import { useDesigner } from '@/components/hooks/use-designer';
 
 interface FormBuilderProps {
   form: Form;
 }
 
 export function FormBuilder({ form }: Readonly<FormBuilderProps>) {
+  const { setElements, setSelectedElement } = useDesigner();
+  const [isReady, setIsReady] = useState(false);
+
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: {
       distance: 10,
@@ -35,6 +40,26 @@ export function FormBuilder({ form }: Readonly<FormBuilderProps>) {
   });
 
   const sensors = useSensors(mouseSensor, touchSensor);
+
+  useEffect(() => {
+    if (isReady) return;
+
+    const elements = JSON.parse(form.content);
+    setElements(elements);
+    setIsReady(true);
+    setSelectedElement(null);
+
+    const readyTimeout = setTimeout(() => setIsReady(true), 500);
+    return () => clearTimeout(readyTimeout);
+  }, [form, setElements, isReady, setSelectedElement]);
+
+  if (!isReady) {
+    return (
+      <div className="flex flex-col items-center justify-center w-full h-full">
+        <ImSpinner2 className="animate-spin h-12 w-12" />
+      </div>
+    );
+  }
 
   return (
     <DndContext sensors={sensors}>
