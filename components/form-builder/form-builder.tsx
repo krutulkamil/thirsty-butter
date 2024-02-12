@@ -103,13 +103,13 @@ export function FormBuilder({ form }: Readonly<FormBuilderProps>) {
               </Button>
             </div>
             <div className="flex justify-between">
-              <Button variant={'link'} asChild>
-                <Link href={'/'} className="gap-2">
+              <Button variant="link" asChild>
+                <Link href="/" className="gap-2">
                   <BsArrowLeft />
                   Go back home
                 </Link>
               </Button>
-              <Button variant={'link'} asChild>
+              <Button variant="link" asChild>
                 <Link href={`/forms/${form.id}`} className="gap-2">
                   Form details
                   <BsArrowRight />
