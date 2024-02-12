@@ -8,7 +8,7 @@ import {
   useSensor,
   useSensors,
 } from '@dnd-kit/core';
-import { ImSpinner2 } from "react-icons/im";
+import { ImSpinner2 } from 'react-icons/im';
 import type { Form } from '@prisma/client';
 
 import { PreviewDialogButton } from '@/components/buttons/preview-dialog-button';
