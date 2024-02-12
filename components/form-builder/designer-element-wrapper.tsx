@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useDraggable, useDroppable } from "@dnd-kit/core";
+import { useDraggable, useDroppable } from '@dnd-kit/core';
 import { BiSolidTrash } from 'react-icons/bi';
 
 import {
@@ -42,7 +42,7 @@ export function DesignerElementWrapper({
   });
 
   const draggable = useDraggable({
-    id: element.id + "-drag-handler",
+    id: element.id + '-drag-handler',
     data: {
       type: element.type,
       elementId: element.id,

@@ -6,7 +6,7 @@ import {
   FormElements,
   type ElementsType,
 } from '@/components/form-builder/form-elements';
-import { useDesigner } from "@/components/hooks/use-designer";
+import { useDesigner } from '@/components/hooks/use-designer';
 
 export function DragOverlayWrapper() {
   const { elements } = useDesigner();
@@ -39,9 +39,10 @@ export function DragOverlayWrapper() {
   if (isDesignerElement) {
     const elementId = draggedItem.data.current?.elementId;
     const element = elements.find((element) => element.id === elementId);
-    if (!element) node = <div>Element not found</div>
+    if (!element) node = <div>Element not found</div>;
     else {
-      const DesignerElementComponent = FormElements[element.type].designerComponent;
+      const DesignerElementComponent =
+        FormElements[element.type].designerComponent;
 
       node = (
         <div className="flex bg-accent border rounded-md h-[120px] w-full py-2 px-4 opacity-80 pointer pointer-events-none">
