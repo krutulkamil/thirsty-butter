@@ -1,8 +1,16 @@
 import React from 'react';
+import { LuView } from 'react-icons/lu';
+import { FaWpforms } from 'react-icons/fa';
+import { HiCursorClick } from 'react-icons/hi';
+import { TbArrowBounce } from 'react-icons/tb';
 
 import { getFormById } from '@/actions/form';
 import { VisitButton } from '@/components/buttons/visit-button';
 import { FormShareLink } from '@/components/form-builder/form-share-link';
+import {
+  StatsCard,
+  type StatsCardProps,
+} from '@/components/stats-card/stats-card';
 
 export const metadata = {
   title: 'DnD Forms | Form Details',
@@ -30,6 +38,41 @@ export default async function FormDetailsPage({
   const submissionRate = visits > 0 ? (submissions / visits) * 100 : 0;
   const bounceRate = 100 - submissionRate;
 
+  const statsCardsConfig: StatsCardProps[] = [
+    {
+      title: 'Total visits',
+      icon: <LuView className="text-blue-600" />,
+      helperText: 'All time form-card visits',
+      value: visits.toLocaleString() ?? '',
+      loading: false,
+      className: 'shadow-md shadow-blue-600',
+    },
+    {
+      title: 'Total submissions',
+      icon: <FaWpforms className="text-yellow-600" />,
+      helperText: 'All time form-card submissions',
+      value: submissions.toLocaleString() ?? '',
+      loading: false,
+      className: 'shadow-md shadow-yellow-600',
+    },
+    {
+      title: 'Submission rate',
+      icon: <HiCursorClick className="text-green-600" />,
+      helperText: 'Visits that result in form-card submission',
+      value: submissionRate.toLocaleString() + '%' || '',
+      loading: false,
+      className: 'shadow-md shadow-green-600',
+    },
+    {
+      title: 'Bounce rate',
+      icon: <TbArrowBounce className="text-red-600" />,
+      helperText: 'Visits that leaves without interacting',
+      value: bounceRate.toLocaleString() + '%' || '',
+      loading: false,
+      className: 'shadow-md shadow-red-600',
+    },
+  ];
+
   return (
     <>
       <div className="py-10 border-b border-muted">
@@ -42,6 +85,11 @@ export default async function FormDetailsPage({
         <div className="container flex gap-2 items-center justify-between">
           <FormShareLink shareUrl={form.shareURL} />
         </div>
+      </div>
+      <div className="w-full pt-8 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 container">
+        {statsCardsConfig.map((card) => (
+          <StatsCard key={card.title} {...card} />
+        ))}
       </div>
     </>
   );
