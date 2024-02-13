@@ -18,6 +18,7 @@ export function FormElementsSidebar() {
         <SidebarButtonElement formElement={FormElements.TextField} />
         <SidebarButtonElement formElement={FormElements.NumberField} />
         <SidebarButtonElement formElement={FormElements.TextAreaField} />
+        <SidebarButtonElement formElement={FormElements.DateField} />
         <p className="text-sm text-muted-foreground col-span-1 md:col-span-2 my-2 place-self-start">
           Layout elements
         </p>

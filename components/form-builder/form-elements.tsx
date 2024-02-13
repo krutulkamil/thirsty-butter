@@ -8,6 +8,7 @@ import { SeparatorFieldFormElement } from '@/components/fields/separator-field/s
 import { SpacerFieldFormElement } from '@/components/fields/spacer-field/spacer-field';
 import { NumberFieldFormElement } from '@/components/fields/number-field/number-field';
 import { TextAreaFormElement } from '@/components/fields/text-area-field/text-area-field';
+import { DateFieldFormElement } from '@/components/fields/date-field/date-field';
 
 export type ElementsType =
   | 'TextField'
@@ -17,7 +18,8 @@ export type ElementsType =
   | 'SeparatorField'
   | 'SpacerField'
   | 'NumberField'
-  | 'TextAreaField';
+  | 'TextAreaField'
+  | 'DateField';
 
 export type SubmitFunctionType = (key: string, value: string) => void;
 
@@ -59,6 +61,7 @@ export const FormElements: FormElementsType = {
   TextField: TextFieldFormElement,
   NumberField: NumberFieldFormElement,
   TextAreaField: TextAreaFormElement,
+  DateField: DateFieldFormElement,
   // LAYOUT COMPONENTS
   TitleField: TitleFieldFormElement,
   SubTitleField: SubTitleFieldFormElement,
