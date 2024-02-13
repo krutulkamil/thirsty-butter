@@ -37,7 +37,11 @@ export function StatsCards({ data, loading }: Readonly<StatsCardsProps>) {
       title: 'Submission rate',
       icon: <HiCursorClick className="text-green-600" />,
       helperText: 'Visits that result in form-card submission',
-      value: data?.submissionRate.toLocaleString() + '%' || '',
+      value:
+        data?.submissionRate.toLocaleString('en-US', {
+          maximumFractionDigits: 2,
+          minimumFractionDigits: 2,
+        }) + '%' || '',
       loading,
       className: 'shadow-md shadow-green-600',
     },
@@ -45,7 +49,11 @@ export function StatsCards({ data, loading }: Readonly<StatsCardsProps>) {
       title: 'Bounce rate',
       icon: <TbArrowBounce className="text-red-600" />,
       helperText: 'Visits that leaves without interacting',
-      value: data?.bounceRate.toLocaleString() + '%' || '',
+      value:
+        data?.bounceRate.toLocaleString('en-US', {
+          maximumFractionDigits: 2,
+          minimumFractionDigits: 2,
+        }) + '%' || '',
       loading,
       className: 'shadow-md shadow-red-600',
     },

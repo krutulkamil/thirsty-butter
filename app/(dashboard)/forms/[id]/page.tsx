@@ -60,7 +60,11 @@ export default async function FormDetailsPage({
       title: 'Submission rate',
       icon: <HiCursorClick className="text-green-600" />,
       helperText: 'Visits that result in form-card submission',
-      value: submissionRate.toLocaleString() + '%' || '',
+      value:
+        submissionRate.toLocaleString('en-US', {
+          maximumFractionDigits: 2,
+          minimumFractionDigits: 2,
+        }) + '%' || '',
       loading: false,
       className: 'shadow-md shadow-green-600',
     },
@@ -68,7 +72,11 @@ export default async function FormDetailsPage({
       title: 'Bounce rate',
       icon: <TbArrowBounce className="text-red-600" />,
       helperText: 'Visits that leaves without interacting',
-      value: bounceRate.toLocaleString() + '%' || '',
+      value:
+        bounceRate.toLocaleString('en-US', {
+          maximumFractionDigits: 2,
+          minimumFractionDigits: 2,
+        }) + '%' || '',
       loading: false,
       className: 'shadow-md shadow-red-600',
     },

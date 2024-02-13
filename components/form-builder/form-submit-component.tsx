@@ -4,6 +4,7 @@ import React, { useCallback, useRef, useState, useTransition } from 'react';
 import { HiCursorClick } from 'react-icons/hi';
 import { ImSpinner2 } from 'react-icons/im';
 
+import { submitFormContent } from '@/actions/form';
 import {
   FormElements,
   type FormElementInstance,
@@ -64,8 +65,7 @@ export function FormSubmitComponent({
 
     try {
       const jsonContent = JSON.stringify(formValues.current);
-      console.log(jsonContent);
-      // await submitFormContent(formUrl, jsonContent);
+      await submitFormContent(formUrl, jsonContent);
       setSubmitted(true);
     } catch (error) {
       toast({
