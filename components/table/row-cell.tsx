@@ -11,7 +11,7 @@ interface RowCellProps {
 }
 
 export function RowCell({ type, value }: Readonly<RowCellProps>) {
-  let node: React.ReactNode = value;
+  const node: React.ReactNode = value;
 
   return <TableCell>{node ?? '-'}</TableCell>;
 }
