@@ -1,7 +1,8 @@
 import React from 'react';
 
-import type { FormElementInstance } from '@/components/form-builder/form-elements';
 import { getFormContentByUrl } from '@/actions/form';
+import { FormSubmitComponent } from '@/components/form-builder/form-submit-component';
+import type { FormElementInstance } from '@/components/form-builder/form-elements';
 
 interface SubmitPageProps {
   params: {

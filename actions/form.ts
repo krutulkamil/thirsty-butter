@@ -150,3 +150,12 @@ export async function getFormContentByUrl(formUrl: string) {
     }
   });
 }
+
+export async function submitFormContent(formUrl: string, jsonContent: string) {
+  return prisma.submission.create({
+    data: {
+      formUrl,
+      content: jsonContent,
+    },
+  });
+}
