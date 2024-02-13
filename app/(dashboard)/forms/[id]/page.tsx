@@ -7,7 +7,7 @@ import { TbArrowBounce } from 'react-icons/tb';
 import { getFormById } from '@/actions/form';
 import { VisitButton } from '@/components/buttons/visit-button';
 import { FormShareLink } from '@/components/form-builder/form-share-link';
-import { SubmissionsTable } from '@/components/form-builder/submissions-table';
+import { SubmissionsTable } from '@/components/table/submissions-table';
 import {
   StatsCard,
   type StatsCardProps,

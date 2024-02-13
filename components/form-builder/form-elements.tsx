@@ -30,7 +30,8 @@ export type FormElement = {
 export type FormElementInstance = {
   id: string;
   type: ElementsType;
-  extraAttributes?: Record<string, unknown>;
+  // TODO: create type union of all possible extra attributes
+  extraAttributes?: Record<string, any>;
 };
 
 type FormElementsType = {
