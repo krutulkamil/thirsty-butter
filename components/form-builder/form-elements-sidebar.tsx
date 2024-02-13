@@ -21,6 +21,7 @@ export function FormElementsSidebar() {
         </p>
         <SidebarButtonElement formElement={FormElements.TitleField} />
         <SidebarButtonElement formElement={FormElements.SubTitleField} />
+        <SidebarButtonElement formElement={FormElements.ParagraphField} />
       </div>
     </div>
   );
