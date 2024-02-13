@@ -17,6 +17,7 @@ export function FormElementsSidebar() {
         </p>
         <SidebarButtonElement formElement={FormElements.TextField} />
         <SidebarButtonElement formElement={FormElements.NumberField} />
+        <SidebarButtonElement formElement={FormElements.TextAreaField} />
         <p className="text-sm text-muted-foreground col-span-1 md:col-span-2 my-2 place-self-start">
           Layout elements
         </p>
