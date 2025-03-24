@@ -1,8 +1,9 @@
 'use server';
 
-import { currentUser } from "@clerk/nextjs";
-import { prisma } from "@/lib/prisma";
-import { formSchema, type FormSchemaType } from "@/schemas/form";
+import { currentUser } from '@clerk/nextjs';
+
+import { prisma } from '@/lib/prisma';
+import { formSchema, type FormSchemaType } from '@/schemas/form';
 
 class UserNotFoundError extends Error {}
 
@@ -34,7 +35,7 @@ export async function getFormStats() {
     submissions,
     submissionRate,
     bounceRate,
-  }
+  };
 }
 
 export async function createForm(data: FormSchemaType) {
@@ -143,11 +144,11 @@ export async function getFormContentByUrl(formUrl: string) {
     data: {
       visits: {
         increment: 1,
-      }
+      },
     },
     where: {
       shareURL: formUrl,
-    }
+    },
   });
 }
 
@@ -164,7 +165,7 @@ export async function submitFormContent(formUrl: string, content: string) {
       formSubmissions: {
         create: {
           content,
-        }
+        },
       },
     },
   });
