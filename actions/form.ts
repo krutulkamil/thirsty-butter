@@ -1,6 +1,6 @@
 'use server';
 
-import { currentUser } from '@clerk/nextjs';
+import { currentUser } from '@clerk/nextjs/server';
 
 import { prisma } from '@/lib/prisma';
 import { formSchema, type FormSchemaType } from '@/schemas/form';
